@@ -1,4 +1,4 @@
-package com.ssem.app;
+package com.ssem.app.db;
 
 public class Database {
 

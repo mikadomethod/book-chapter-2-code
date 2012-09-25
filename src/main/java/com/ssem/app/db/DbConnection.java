@@ -1,4 +1,4 @@
-package com.ssem.app;
+package com.ssem.app.db;
 
 import java.io.File;
 import java.io.FileInputStream;

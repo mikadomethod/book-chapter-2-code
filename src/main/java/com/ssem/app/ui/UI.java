@@ -1,4 +1,4 @@
-package com.ssem.app;
+package com.ssem.app.ui;
 
 import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
