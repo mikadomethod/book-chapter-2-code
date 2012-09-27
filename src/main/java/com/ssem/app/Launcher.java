@@ -7,7 +7,9 @@ public class Launcher {
 
 	public static void main(String[] argv) {
 			try {
-				App.start();
+				App app = new App();
+				app.init();
+				app.start();
 			} catch (ApplicationException e) {
 				System.err.println("Could not start application");
 				e.printStackTrace();

@@ -13,13 +13,10 @@ import java.util.Map;
 
 public class Database {
 
-	public static void init() {
-
-	}
+	private static File file = Configuration.getStorage();
 	
-	public static List<String> load(String key) {
+	public List<String> load(String key) {
 		try {
-			File file = Configuration.getStorage();
 			ObjectInputStream stream = new ObjectInputStream(new FileInputStream(file));
 			Map<String, Serializable> data = (Map<String, Serializable>)stream.readObject();
 			return (List<String>) data.get(key);
@@ -36,7 +33,6 @@ public class Database {
 	
 	public void store(Map<String, Serializable> data) {
 		try {
-			File file = Configuration.getStorage();
 			FileOutputStream out = new FileOutputStream(file);
 			ObjectOutputStream stream = new ObjectOutputStream(out);
 			stream.writeObject(data);
