@@ -1,6 +1,5 @@
 package com.ssem.app;
 
-import com.ssem.app.db.Configuration;
 import com.ssem.app.ui.App;
 import com.ssem.app.ui.ApplicationException;
 
@@ -8,7 +7,7 @@ public class Launcher {
 
 	public static void main(String[] argv) {
 			try {
-				App app = new App(new Configuration());
+				App app = new App();
 				app.init();
 				app.launch();
 			} catch (ApplicationException e) {
