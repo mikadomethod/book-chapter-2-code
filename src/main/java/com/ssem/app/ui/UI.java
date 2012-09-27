@@ -11,14 +11,13 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import com.ssem.app.db.DB;
 import com.ssem.app.db.Database;
 
 public class UI {
 
 	private List<String> users;
 	private JFrame frame;
-	private DB database;
+	private Database database;
 
 	public UI() {
 		frame = new JFrame();
