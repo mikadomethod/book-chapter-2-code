@@ -3,7 +3,9 @@ package com.ssem.app.ui;
 import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
+import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
@@ -11,11 +13,23 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import com.ssem.app.db.Database;
+
 public class UI {
 
-	public void setUsers(List<String> users) {
-		JFrame frame = new JFrame();
+	private Map<String, Serializable> data;
+	private JFrame frame;
+
+	public void init() {
+		data = Database.load();
+		frame = new JFrame();
+	}
+
+	
+	public void showLogin() {
+		List<String> users = (List<String>) data.get("users");
 		JComboBox combo = new JComboBox(users.toArray());
+
 		frame.setLayout(new GridBagLayout());
 		frame.add(combo);
 		JPanel buttons = new JPanel(new FlowLayout());
@@ -45,5 +59,4 @@ public class UI {
 				System.out.println("Logging in");;
 			}};
 	}
-
 }
