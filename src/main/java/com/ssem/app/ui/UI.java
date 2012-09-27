@@ -11,21 +11,23 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import com.ssem.app.db.DB;
 import com.ssem.app.db.Database;
 
 public class UI {
 
 	private List<String> users;
 	private JFrame frame;
-	private Database db;
+	private DB database;
 
 	public UI() {
 		frame = new JFrame();
+		database = new Database();
 	}
 
 	
 	public void showLogin() {
-		users = db.load("users");
+		users = database.load("users");
 		JComboBox combo = new JComboBox(users.toArray());
 		frame.setLayout(new GridBagLayout());
 		frame.add(combo);
@@ -55,10 +57,5 @@ public class UI {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Logging in");;
 			}};
-	}
-
-
-	public void setDatabase(Database db) {
-		this.db = db;
 	}
 }

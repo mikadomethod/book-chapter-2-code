@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-public class Database {
+public class Database implements DB {
 
 	private static File file = Configuration.getStorage();
 	

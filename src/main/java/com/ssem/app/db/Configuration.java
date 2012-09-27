@@ -10,7 +10,7 @@ public class Configuration {
 		return file;
 	}
 
-	public static void setStorage(String fileName) {
+	public void setStorage(String fileName) {
 		file = new File(fileName);
 	}
 
