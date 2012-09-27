@@ -5,25 +5,14 @@ import java.util.List;
 import java.util.Map;
 
 import com.ssem.app.db.Database;
-import com.ssem.app.db.DatabaseException;
-import com.ssem.app.db.DbConnection;
 
 public class App {
 
 	public static void showLogin() throws ApplicationException {
-		DbConnection connection = null;
-		try {
-			connection = Database.getConnection("db", "user", "password");
-		} catch (DatabaseException e) {
-			throw new ApplicationException(e);
-		}
-		
-		if (connection != null) {
-			Map<String, Serializable> data = connection.load();
+			Database.setStorage("/home/ola/db.old");
+			Map<String, Serializable> data = Database.load();
 			List<String> users = (List<String>) data.get("users");
 			new UI().setUsers(users);
-		}
-		
 	}
 
 }
