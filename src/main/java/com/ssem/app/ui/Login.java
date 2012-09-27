@@ -1,4 +1,4 @@
-package com.ssem.app;
+package com.ssem.app.ui;
 
 import java.io.Serializable;
 import java.util.List;
@@ -7,12 +7,10 @@ import java.util.Map;
 import com.ssem.app.db.Database;
 import com.ssem.app.db.DatabaseException;
 import com.ssem.app.db.DbConnection;
-import com.ssem.app.ui.ApplicationException;
-import com.ssem.app.ui.UI;
 
 public class Login {
 
-	public static void launch() throws ApplicationException {
+	public static void showScreen() throws ApplicationException {
 		DbConnection connection = null;
 		try {
 			connection = Database.getConnection("db", "user", "password");
