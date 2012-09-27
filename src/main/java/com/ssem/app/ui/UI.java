@@ -3,9 +3,7 @@ package com.ssem.app.ui;
 import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
-import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
@@ -13,6 +11,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import com.ssem.app.db.Configuration;
 import com.ssem.app.db.Database;
 
 public class UI {
@@ -21,12 +20,14 @@ public class UI {
 	private JFrame frame;
 
 	public void init() {
-		users = Database.load("users");
 		frame = new JFrame();
+		Configuration.setStorage("/home/ola/db.old");
 	}
 
 	
 	public void showLogin() {
+		Database.init();
+		users = Database.load("users");
 		JComboBox combo = new JComboBox(users.toArray());
 
 		frame.setLayout(new GridBagLayout());

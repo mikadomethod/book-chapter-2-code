@@ -1,6 +1,7 @@
 package com.ssem.app.ui;
 
 
+
 public class App {
 
 	public static void start() throws ApplicationException {
