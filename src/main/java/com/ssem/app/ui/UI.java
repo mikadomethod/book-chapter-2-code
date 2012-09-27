@@ -17,17 +17,16 @@ import com.ssem.app.db.Database;
 
 public class UI {
 
-	private Map<String, Serializable> dataBase;
+	private List<String> users;
 	private JFrame frame;
 
 	public void init() {
-		dataBase = Database.load();
+		users = Database.load("users");
 		frame = new JFrame();
 	}
 
 	
 	public void showLogin() {
-		List<String> users = (List<String>) dataBase.get("users");
 		JComboBox combo = new JComboBox(users.toArray());
 
 		frame.setLayout(new GridBagLayout());
