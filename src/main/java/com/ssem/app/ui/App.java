@@ -8,9 +8,9 @@ import com.ssem.app.db.Database;
 import com.ssem.app.db.DatabaseException;
 import com.ssem.app.db.DbConnection;
 
-public class Login {
+public class App {
 
-	public static void showScreen() throws ApplicationException {
+	public static void showLogin() throws ApplicationException {
 		DbConnection connection = null;
 		try {
 			connection = Database.getConnection("db", "user", "password");
