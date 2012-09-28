@@ -13,8 +13,8 @@ import java.util.Map;
 
 public class Database {
 
-	private static File file = Configuration.getStorage();
-	
+	private File file;
+
 	public List<String> load(String key) {
 		try {
 			ObjectInputStream stream = new ObjectInputStream(new FileInputStream(file));
@@ -42,6 +42,11 @@ public class Database {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+
+	public void setStore(String storageFile) {
+		file = new File(storageFile);		
 	}
 
 

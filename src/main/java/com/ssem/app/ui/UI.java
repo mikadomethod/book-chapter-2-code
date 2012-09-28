@@ -15,35 +15,45 @@ import com.ssem.app.db.Database;
 
 public class UI {
 
-	private List<String> users;
+	
 	private JFrame frame;
 	private Database database;
 
 	public UI() {
 		frame = new JFrame();
 		database = new Database();
+		database.setStore(App.getStorageFile());
 	}
 
-	
 	public void showLogin() {
-		users = database.load("users");
+		List<String> users = database.load("users");
+		addLoginSelector(users);
+		addButtons();
+		frame.setSize(800, 600);
+		frame.setVisible(true);
+	}
+
+	private void addLoginSelector(List<String> users) {
 		JComboBox combo = new JComboBox(users.toArray());
 		frame.setLayout(new GridBagLayout());
 		frame.add(combo);
+	}
+
+	private void addButtons() {
 		JPanel buttons = new JPanel(new FlowLayout());
 		buttons.add(actionButton(exitAction("Cancel")));
 		buttons.add(actionButton(getLoginAction("Login")));
 		frame.add(buttons);
-		frame.setSize(800, 600);
-		frame.setVisible(true);
 	}
 
 	private AbstractAction exitAction(String label) {
 		return new AbstractAction(label) {
 			private static final long serialVersionUID = 1L;
+
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
-			}};
+			}
+		};
 	}
 
 	private JButton actionButton(AbstractAction action) {
@@ -53,8 +63,11 @@ public class UI {
 	private AbstractAction getLoginAction(String label) {
 		return new AbstractAction(label) {
 			private static final long serialVersionUID = 1L;
+
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Logging in");;
-			}};
+				System.out.println("Logging in");
+				;
+			}
+		};
 	}
 }

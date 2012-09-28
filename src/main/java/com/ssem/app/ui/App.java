@@ -1,17 +1,22 @@
 package com.ssem.app.ui;
 
-import com.ssem.app.db.Configuration;
 
 public class App {
 
-	public void init() {
-		Configuration.setStorage("/home/ola/db.old");		
-	}
-	
+	private UI ui;
+	private static String storePath;
+
 	public void launch() throws ApplicationException {
-			UI ui = new UI();
-			ui.showLogin();
+		ui = new UI();
+		ui.showLogin();
 	}
 
+	public static String getStorageFile() {
+		return storePath;
+	}
+
+	public static void setStorageFile(String storePath) {
+		App.storePath = storePath;
+	}
 
 }

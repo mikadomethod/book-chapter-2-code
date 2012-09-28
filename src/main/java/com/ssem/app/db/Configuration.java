@@ -6,11 +6,11 @@ public class Configuration {
 
 	private static File file;
 	
-	public static File getStorage() {
+	public File getStorage() {
 		return file;
 	}
 
-	public static void setStorage(String fileName) {
+	public void setStorage(String fileName) {
 		file = new File(fileName);
 	}
 
