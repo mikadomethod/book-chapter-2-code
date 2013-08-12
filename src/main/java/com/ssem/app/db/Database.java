@@ -13,42 +13,38 @@ import java.util.Map;
 
 public class Database {
 
-	private File file;
+    private final File file;
 
-	public List<String> load(String key) {
-		try {
-			ObjectInputStream stream = new ObjectInputStream(new FileInputStream(file));
-			Map<String, Serializable> data = (Map<String, Serializable>)stream.readObject();
-			return (List<String>) data.get(key);
-			
-		} catch (FileNotFoundException e) {
-			throw new DatabaseException(e);
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	public void store(Map<String, Serializable> data) {
-		try {
-			FileOutputStream out = new FileOutputStream(file);
-			ObjectOutputStream stream = new ObjectOutputStream(out);
-			stream.writeObject(data);
-			out.close();
-		} catch (FileNotFoundException e) {
-			throw new DatabaseException(e);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+    public Database(String storageFile) {
+        this.file = new File(storageFile);
+    }
 
+    public List<String> load(String key) {
+        try {
+            ObjectInputStream stream = new ObjectInputStream(new FileInputStream(file));
+            Map<String, Serializable> data = (Map<String, Serializable>) stream.readObject();
+            return (List<String>) data.get(key);
 
-	public void setStore(String storageFile) {
-		file = new File(storageFile);		
-	}
+        } catch (FileNotFoundException e) {
+            throw new DatabaseException(e);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
-
-	
+    public void store(Map<String, Serializable> data) {
+        try {
+            FileOutputStream out = new FileOutputStream(file);
+            ObjectOutputStream stream = new ObjectOutputStream(out);
+            stream.writeObject(data);
+            out.close();
+        } catch (FileNotFoundException e) {
+            throw new DatabaseException(e);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
