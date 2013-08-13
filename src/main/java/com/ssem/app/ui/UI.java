@@ -11,59 +11,63 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import com.ssem.app.db.Database;
+
 public class UI {
 
-    private final JFrame frame;
+	
+	private JFrame frame;
+	private Database database;
 
-    public UI() {
-        frame = new JFrame();
-    }
+	public UI() {
+		frame = new JFrame();
+		database = new Database();
+		database.setStore(App.getStorageFile());
+	}
 
-    public void showLogin(FileDbUserRepo repo) {
-        List<String> roles = repo.fetchAll();
-        addLoginSelector(roles);
-        addButtons();
-        frame.setSize(800, 600);
-        frame.setVisible(true);
-    }
+	public void showLogin() {
+		List<String> users = database.load("users");
+		addLoginSelector(users);
+		addButtons();
+		frame.setSize(800, 600);
+		frame.setVisible(true);
+	}
 
-    private void addLoginSelector(List<String> users) {
-        JComboBox combo = new JComboBox(users.toArray());
-        frame.setLayout(new GridBagLayout());
-        frame.add(combo);
-    }
+	private void addLoginSelector(List<String> users) {
+		JComboBox combo = new JComboBox(users.toArray());
+		frame.setLayout(new GridBagLayout());
+		frame.add(combo);
+	}
 
-    private void addButtons() {
-        JPanel buttons = new JPanel(new FlowLayout());
-        buttons.add(actionButton(exitAction("Cancel")));
-        buttons.add(actionButton(getLoginAction("Login")));
-        frame.add(buttons);
-    }
+	private void addButtons() {
+		JPanel buttons = new JPanel(new FlowLayout());
+		buttons.add(actionButton(exitAction("Cancel")));
+		buttons.add(actionButton(getLoginAction("Login")));
+		frame.add(buttons);
+	}
 
-    private AbstractAction exitAction(String label) {
-        return new AbstractAction(label) {
-            private static final long serialVersionUID = 1L;
+	private AbstractAction exitAction(String label) {
+		return new AbstractAction(label) {
+			private static final long serialVersionUID = 1L;
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        };
-    }
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		};
+	}
 
-    private JButton actionButton(AbstractAction action) {
-        return new JButton(action);
-    }
+	private JButton actionButton(AbstractAction action) {
+		return new JButton(action);
+	}
 
-    private AbstractAction getLoginAction(String label) {
-        return new AbstractAction(label) {
-            private static final long serialVersionUID = 1L;
+	private AbstractAction getLoginAction(String label) {
+		return new AbstractAction(label) {
+			private static final long serialVersionUID = 1L;
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Logging in");
-                ;
-            }
-        };
-    }
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Logging in");
+				;
+			}
+		};
+	}
 }
