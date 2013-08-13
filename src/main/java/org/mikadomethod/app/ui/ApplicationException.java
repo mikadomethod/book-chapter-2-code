@@ -1,6 +1,6 @@
-package com.ssem.app.ui;
+package org.mikadomethod.app.ui;
 
-import com.ssem.app.db.DatabaseException;
+import org.mikadomethod.app.db.DatabaseException;
 
 public class ApplicationException extends Exception {
 	private static final long serialVersionUID = 1L;

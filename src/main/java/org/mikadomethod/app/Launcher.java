@@ -1,7 +1,7 @@
-package com.ssem.app;
+package org.mikadomethod.app;
 
-import com.ssem.app.ui.App;
-import com.ssem.app.ui.ApplicationException;
+import org.mikadomethod.app.ui.App;
+import org.mikadomethod.app.ui.ApplicationException;
 
 public class Launcher {
 

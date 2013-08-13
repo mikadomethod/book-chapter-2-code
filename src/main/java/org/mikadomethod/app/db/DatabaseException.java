@@ -1,4 +1,4 @@
-package com.ssem.app.db;
+package org.mikadomethod.app.db;
 
 import java.io.FileNotFoundException;
 

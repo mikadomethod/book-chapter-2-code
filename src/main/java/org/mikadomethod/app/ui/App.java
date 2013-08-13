@@ -1,4 +1,4 @@
-package com.ssem.app.ui;
+package org.mikadomethod.app.ui;
 
 
 public class App {

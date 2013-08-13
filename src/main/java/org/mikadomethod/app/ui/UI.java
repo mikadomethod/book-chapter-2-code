@@ -1,4 +1,4 @@
-package com.ssem.app.ui;
+package org.mikadomethod.app.ui;
 
 import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
@@ -11,7 +11,8 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import com.ssem.app.db.Database;
+import org.mikadomethod.app.db.Database;
+
 
 public class UI {
 

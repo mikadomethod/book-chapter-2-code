@@ -1,2 +1,2 @@
 #!/bin/sh
-java -cp classes com.ssem.app.Launcher
+java -cp classes org.mikadomethod.app.Launcher
