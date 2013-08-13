@@ -18,7 +18,7 @@ public class UI {
 
 	
 	private JFrame frame;
-	private FileDB database;
+	private Database database;
 
 	public UI() {
 		frame = new JFrame();
