@@ -20,15 +20,9 @@ public class FileDB {
 			ObjectInputStream stream = new ObjectInputStream(new FileInputStream(file));
 			Map<String, Serializable> data = (Map<String, Serializable>)stream.readObject();
 			return (List<String>) data.get(key);
-			
-		} catch (FileNotFoundException e) {
-			throw new DatabaseException(e);
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
 		}
-		return null;
 	}
 	
 	public void store(Map<String, Serializable> data) {
@@ -37,10 +31,8 @@ public class FileDB {
 			ObjectOutputStream stream = new ObjectOutputStream(out);
 			stream.writeObject(data);
 			out.close();
-		} catch (FileNotFoundException e) {
-			throw new DatabaseException(e);
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -49,6 +41,4 @@ public class FileDB {
 		file = new File(storageFile);		
 	}
 
-
-	
 }
