@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-public class Database {
+public class FileDB {
 
 	private File file;
 
