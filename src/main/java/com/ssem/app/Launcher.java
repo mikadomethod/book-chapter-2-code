@@ -7,7 +7,7 @@ public class Launcher {
 
 	public static void main(String[] argv) {
 			try {
-				App.setStorageFile("/home/ola/db.old");
+				App.setStorageFile(System.getProperty("user.dir") + "/db.txt");
 				App app = new App();
 				app.launch();
 			} catch (ApplicationException e) {
