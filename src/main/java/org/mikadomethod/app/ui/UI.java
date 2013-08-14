@@ -22,8 +22,7 @@ public class UI {
 
 	public UI() {
 		frame = new JFrame();
-		database = new FileDB();
-		database.setStore(App.getStorageFile());
+		database = new FileDB(App.getStorageFile());
 	}
 
 	public void showLogin() {

@@ -13,6 +13,10 @@ public class FileDB {
 
 	private File file;
 
+	public FileDB(String storageFile) {
+		file = new File(storageFile);		
+	}
+	
 	public List<String> load(String key) {
 		try {
 			ObjectInputStream stream = new ObjectInputStream(new FileInputStream(file));
@@ -32,11 +36,6 @@ public class FileDB {
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
-	}
-
-
-	public void setStore(String storageFile) {
-		file = new File(storageFile);		
 	}
 
 }
