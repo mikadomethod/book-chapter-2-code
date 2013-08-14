@@ -10,13 +10,4 @@ public class App {
 		ui = new UI();
 		ui.showLogin();
 	}
-
-	public static String getStorageFile() {
-		return storePath;
-	}
-
-	public static void setStorageFile(String storePath) {
-		App.storePath = storePath;
-	}
-
 }
