@@ -11,14 +11,13 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import org.mikadomethod.app.db.Database;
 import org.mikadomethod.app.db.FileDB;
 
 
 public class UI {
-
-	
 	private JFrame frame;
-	private FileDB database;
+	private Database database;
 
 	public UI() {
 		frame = new JFrame();
