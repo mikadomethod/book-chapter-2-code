@@ -1,5 +1,7 @@
 package org.mikadomethod.app.ui;
 
+import org.mikadomethod.app.db.FileDB;
+
 
 public class App {
 
@@ -7,7 +9,7 @@ public class App {
 	private static String storePath;
 
 	public void launch() throws ApplicationException {
-		ui = new UI();
+		ui = new UI(new FileDB(App.getStorageFile()));
 		ui.showLogin();
 	}
 

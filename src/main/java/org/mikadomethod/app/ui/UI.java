@@ -19,9 +19,9 @@ public class UI {
 	private JFrame frame;
 	private Database database;
 
-	public UI() {
+	public UI(Database database) {
 		frame = new JFrame();
-		database = new FileDB(App.getStorageFile());
+		this.database = database;
 	}
 
 	public void showLogin() {
