@@ -12,7 +12,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import org.mikadomethod.app.db.Database;
-import org.mikadomethod.app.db.FileDB;
 
 
 public class UI {
