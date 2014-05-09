@@ -1,4 +1,4 @@
-book-chapter-2-code
+Chapter 2 code examples
 ===================
 The code from chapter 2 in [The Mikado Method book](http://www.manning.com/ellnestam/).
 
